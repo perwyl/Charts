@@ -145,26 +145,26 @@ open class ChartHighlighter : NSObject, IHighlighter
     {
         var distance = minSelectionDistance
         var closest: Highlight?
-        
+
         for i in 0 ..< closestValues.count
         {
             let high = closestValues[i]
-            
+
             if axis == nil || high.axis == axis
             {
                 let cDistance = getDistance(x1: x, y1: y, x2: high.xPx, y2: high.yPx)
-                
-                if cDistance < distance
+
+                //if cDistance < distance
+                if y >= high.yPx && y <= (((chart as? BarChartView)?.frame.height)! - 20)
                 {
                     closest = high
-                    distance = cDistance
+                    // distance = cDistance
                 }
             }
         }
         
         return closest
     }
-    
     /// - returns: The minimum distance from a touch-y-value (in pixels) to the closest y-value (in pixels) that is displayed in the chart.
     @objc internal func getMinimumDistance(
         closestValues: [Highlight],
