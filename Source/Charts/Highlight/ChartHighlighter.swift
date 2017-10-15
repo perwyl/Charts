@@ -155,7 +155,7 @@ open class ChartHighlighter : NSObject, IHighlighter
                 let cDistance = getDistance(x1: x, y1: y, x2: high.xPx, y2: high.yPx)
 
                 //if cDistance < distance
-                if y >= high.yPx && y <= (((chart as? BarChartView)?.frame.height)! - 20)
+                if y >= high.yPx && y <= (((chart as? BarLineChartViewBase)?.frame.height)! - 20)
                 {
                     closest = high
                     // distance = cDistance
